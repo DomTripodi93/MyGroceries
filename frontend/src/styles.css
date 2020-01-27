@@ -25,3 +25,9 @@ grid255025{
     display: grid;
     grid-template-columns: 25% 50% 25%;
 }
+
+.border{
+    border-style: solid;
+    border-color: rgb(0, 10, 155);
+    background-color: rgb(167, 187, 255);
+}

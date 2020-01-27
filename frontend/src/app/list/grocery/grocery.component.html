@@ -1,9 +1,9 @@
 <div *ngIf="!editMode" class="grid33">
-    <div>
-        <h5><strong>{{grocery.item}}</strong></h5>
+    <div class="border">
+        <h3><strong>{{grocery.item}}</strong></h3>
     </div>
-    <div>
-        <h5><strong>{{grocery.department}}</strong></h5>
+    <div class="border">
+        <h3><strong>{{grocery.department}}</strong></h3>
     </div>
     <div class="grid50">
         <button class="btn btn-info" (click)="onEdit()">Edit</button>
