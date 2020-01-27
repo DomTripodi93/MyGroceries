@@ -1,0 +1,32 @@
+<div *ngIf="!auth.user">
+    <h2 routerlink="/register"> 
+        <a routerLink="/register">
+            Create an account to start your grocery list! 
+        </a>
+    </h2>
+</div>
+<div *ngIf="auth.user">
+    <h1> My Grocery List </h1>
+    <br><br>
+    <div class="grid33">
+        <div>
+            <h3> Grocery </h3>
+        </div>
+        <div>
+            <h3> Department </h3>
+        </div>
+    </div>
+    <br>
+    <div *ngFor="let groc of groceries">
+        <app-grocery [grocery]="groc"></app-grocery>
+    </div>
+    <br><br>
+    <div class="grid33">
+        <div></div>
+        <button class="btn btn-success" (click)="onEdit()">Add New Grocery</button>
+        <div></div>
+    </div>
+    <div *ngIf="editMode">
+        <app-add (cancel)="onCancel()"></app-add>
+    </div>
+</div>

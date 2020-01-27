@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+h1,h2,h3,h4,h5,h6,button,a{
+    text-align: center;
+    margin: auto;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    color:rgb(65, 65, 65);
+}

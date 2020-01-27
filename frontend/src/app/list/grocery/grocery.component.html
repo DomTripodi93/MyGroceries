@@ -1,0 +1,15 @@
+<div *ngIf="!editMode" class="grid33">
+    <div>
+        {{grocery.item}}
+    </div>
+    <div>
+        {{grocery.department}}
+    </div>
+    <div class="grid50">
+        <button class="btn btn-info" (click)="onEdit()">Edit</button>
+        <button class="btn btn-danger" (click)="onDelete(grocery.id)">Delete</button>
+    </div>
+</div>
+<div *ngIf="editMode">
+    <app-edit [grocery]="grocery" (cancel)="onCancel()"></app-edit>
+</div>
