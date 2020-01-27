@@ -28,7 +28,8 @@ export class EditComponent implements OnInit {
 
   private initForm() {
     this.editGroceryForm = new FormGroup({
-      'item': new FormControl(this.grocery.item)
+      'item': new FormControl(this.grocery.item),
+      'department': new FormControl(this.grocery.department)
     });
   }
 

@@ -1,34 +1,36 @@
 <form *ngIf="groceryForm" [formGroup]="groceryForm" (ngSubmit)='onSubmit()' >
-  <div class="form-group">
-    <label for="item">Grocery</label>
-    <input 
-      formControlName='item'
-      id="item" 
-      class="form-control"
-    >
-  </div>
-  <div class="form-group">
-    <label for="department">Department</label>
-    <input 
-      formControlName='department'
-      id="department" 
-      class="form-control"
-    >
-  </div>
-  <br><br>
-  <div class='grid'>
-    <button 
-      class="btn btn-success" 
-      type="submit"
-      [disabled]="!groceryForm.valid"
-    >
-      Add Grocery
-    </button>
-    <button 
-      type='button' 
-      class='btn btn-danger pull-right' 
-      (click)='onCancel()'
-    >
-      Cancel
-    </button>
+  <div class="grid33">
+    <div class="form-group">
+        <label for="item">Grocery</label>
+        <input 
+        formControlName='item'
+        id="item" 
+        class="form-control"
+        >
+    </div>
+    <div class="form-group">
+        <label for="department">Department</label>
+        <input 
+        formControlName='department'
+        id="department" 
+        class="form-control"
+        >
+    </div>
+    <br><br>
+    <div class='grid50'>
+        <button 
+        class="btn btn-success" 
+        type="submit"
+        [disabled]="!groceryForm.valid"
+        >
+        Add Grocery
+        </button>
+        <button 
+        type='button' 
+        class='btn btn-danger pull-right' 
+        (click)='onCancel()'
+        >
+        Cancel
+        </button>
+    </div>
   </div>

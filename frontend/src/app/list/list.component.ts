@@ -23,7 +23,9 @@ export class ListComponent implements OnInit {
     this.grocSub = this.grocServ.groceriesUpdated.subscribe(()=>{
       this.getGroceries();
     })
-    this.getGroceries();
+    if (this.auth.user){
+      this.getGroceries();
+    }
   }
 
   onEdit(){

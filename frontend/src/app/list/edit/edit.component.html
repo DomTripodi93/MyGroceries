@@ -1,5 +1,5 @@
 <form *ngIf="editGroceryForm" [formGroup]="editGroceryForm" (ngSubmit)='submitAll()'>
-  <div class='form-group'>
+  <div class='form-group grid33'>
     <div class="form-group field-set">
       <input 
         formControlName='item'
@@ -22,7 +22,6 @@
             Update
         </button>
         <button 
-        type='button' 
         class='btn btn-danger' 
         (click)='onCancel()'>
             Cancel

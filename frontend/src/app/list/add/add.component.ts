@@ -30,7 +30,7 @@ export class AddComponent implements OnInit {
   
   onSubmit(){
     this.grocServ.addGrocery(this.groceryForm.value).subscribe(() => {
-      this.grocServ.groceryUpdated.next();
+      this.grocServ.groceriesUpdated.next();
       this.onCancel();
     });
   }

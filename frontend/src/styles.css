@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 h1,h2,h3,h4,h5,h6,button,a{
     text-align: center;
-    margin: auto;
 }
 
 a{
@@ -10,4 +9,19 @@ a{
 
 a:hover{
     color:rgb(65, 65, 65);
+}
+
+.grid50 { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.grid33 { 
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+grid255025{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
 }
