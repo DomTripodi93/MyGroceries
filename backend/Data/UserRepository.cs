@@ -1,8 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using BackEnd.Data;
-using BackEnd.Helpers;
 using BackEnd.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,11 +38,12 @@ namespace BackEnd.Data
             return user;
         }
 
-        public async Task<Grocery> GetGroceries(int userId, string model, PagingParams groceryParams)
+        public async Task<IEnumerable<Grocery>> GetGroceries(int userId)
         {
-            var groceries = _context.Groceries
+            var groceries = await _context.Groceries
                 .Where(g => g.userId == userId)
-                .OrderBy(global => g.Department);
+                .OrderBy(g => g.Department)
+                .ToListAsync(); 
 
             return groceries;
         }

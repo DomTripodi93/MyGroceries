@@ -9,9 +9,6 @@ namespace BackEnd.Models
         public string Name { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
-        public ICollection<Mach> Machine { get; set; }
-        public ICollection<Part> Part { get; set; }
         public ICollection<Grocery> Grocery { get; set; }
-        public Settings Settings { get; set; }
     }
 }

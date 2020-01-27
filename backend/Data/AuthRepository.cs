@@ -51,15 +51,6 @@ namespace BackEnd.Data
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
-            SettingsForCreationDto settingsForCreation = new SettingsForCreationDto{
-                IsNew = true,
-                SkipLathe = false,
-                SkipMill = false
-            };
-
-            Settings settings = _mapper.Map<Settings>(settingsForCreation);
-
-            user.Settings = settings;
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 

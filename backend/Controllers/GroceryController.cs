@@ -1,3 +1,14 @@
+using AutoMapper;
+using BackEnd.Data;
+using BackEnd.Dtos;
+using BackEnd.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
+
 namespace BackEnd.Controllers
 {
     [Authorize]
@@ -18,7 +29,7 @@ namespace BackEnd.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AddGrocery(int userId, ChangelogForCreationDto groceryForCreationDto)
+        public async Task<IActionResult> AddGrocery(int userId, GroceryForCreationDto groceryForCreationDto)
         {
             var creator = await _repo.GetUser(userId);
 
@@ -26,9 +37,7 @@ namespace BackEnd.Controllers
                 return Unauthorized();
 
             var grocery = _mapper.Map<Grocery>(groceryForCreationDto);
-
-            grocery.TimeStamp = DateTime.Now;
-
+            
             grocery.userId = userId;
 
             _repo.Add(grocery);
@@ -41,7 +50,7 @@ namespace BackEnd.Controllers
             throw new Exception("Creation of grocery count failed on save");
         }
 
-        [HttpGet(nameof="GetGrocery")]
+        [HttpGet(Name="GetGrocery")]
         public async Task<IActionResult> GetGroceries(int userId)
         {
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))

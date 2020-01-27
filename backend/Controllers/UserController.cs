@@ -14,8 +14,8 @@ namespace BackEnd.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly IManagementRepository _repo;
-        public UserController(IMapper mapper, IManagementRepository repo)
+        private readonly IUserRepository _repo;
+        public UserController(IMapper mapper, IUserRepository repo)
         {
             _mapper = mapper;
             _repo = repo;

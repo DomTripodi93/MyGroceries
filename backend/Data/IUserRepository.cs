@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using BackEnd.Helpers;
 using BackEnd.Models;
 
 namespace BackEnd.Data
@@ -10,7 +10,7 @@ namespace BackEnd.Data
         void Delete<T>(T entity) where T: class;
         Task<bool> SaveAll();
         Task<User> GetUser(int id);
-        Task<Grocery> GetGroceries(int userId);
+        Task<IEnumerable<Grocery>> GetGroceries(int userId);
         Task<Grocery> GetUniqueGrocery(int id);
         
     }
