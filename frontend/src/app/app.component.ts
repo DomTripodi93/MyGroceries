@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  title = 'Grocery Shopping List';
 
   
   public constructor(
@@ -16,6 +16,7 @@ export class AppComponent {
     private auth: AuthService
   ){
     this.auth.checkLogin();
+    this.setTitle(this.title);
   }
 
   public setTitle( newTitle: string) {

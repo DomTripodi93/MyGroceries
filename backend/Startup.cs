@@ -33,7 +33,7 @@ namespace ProBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(options => {
                     options.SerializerSettings.ReferenceLoopHandling
@@ -44,7 +44,7 @@ namespace ProBackend
                 options.AddPolicy("MyCors",
                     builder =>
                     {
-                        builder.WithOrigins("https://grocerysl.firebaseapp.com")
+                        builder.WithOrigins("https://grocerysl.firebaseapp.com", "http://localhost:4200")
                             .AllowAnyMethod()
                             .AllowAnyHeader()
                             .AllowCredentials();
@@ -53,7 +53,6 @@ namespace ProBackend
             });
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IManagementRepository, ManagementRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {

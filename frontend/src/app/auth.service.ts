@@ -10,8 +10,8 @@ export class AuthService {
   user = '';
   name = '';
   isAuthenticated = true;
-  authApiUrl = 'https://grocerysl.azurewebsites.net/api';
-  apiUrl = 'https://grocerysl.azurewebsites.net/api/' + localStorage.getItem('id');
+  authApiUrl = 'http://localhost:5000/api';
+  apiUrl = 'http://localhost:5000/api/' + localStorage.getItem('id');
   authChanged = new Subject();
 
   constructor(

@@ -1,7 +1,6 @@
 <form *ngIf="groceryForm" [formGroup]="groceryForm" (ngSubmit)='onSubmit()' >
   <div class="grid33">
     <div class="form-group">
-        <label for="item">Grocery</label>
         <input 
         formControlName='item'
         id="item" 
@@ -9,28 +8,26 @@
         >
     </div>
     <div class="form-group">
-        <label for="department">Department</label>
         <input 
         formControlName='department'
         id="department" 
         class="form-control"
         >
     </div>
-    <br><br>
     <div class='grid50'>
         <button 
         class="btn btn-success" 
         type="submit"
         [disabled]="!groceryForm.valid"
         >
-        Add Grocery
+        <h4>Add Grocery</h4>
         </button>
         <button 
         type='button' 
         class='btn btn-danger pull-right' 
         (click)='onCancel()'
         >
-        Cancel
+        <h4>Cancel</h4>
         </button>
     </div>
   </div>

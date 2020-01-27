@@ -1,15 +1,22 @@
-<div *ngIf="!editMode" class="grid33">
-    <div class="border">
-        <h3><strong>{{grocery.item}}</strong></h3>
+<div class="grid6633">
+    <div *ngIf="!editMode" class="grid50">
+        <div class="border-left">
+            <h5><strong>{{grocery.item}}</strong></h5>
+        </div>
+        <div class="border">
+            <h5><strong>{{grocery.department}}</strong></h5>
+        </div>
     </div>
-    <div class="border">
-        <h3><strong>{{grocery.department}}</strong></h3>
+    <div *ngIf="editMode">
+        <app-edit [grocery]="grocery" (cancel)="onCancel()"></app-edit>
     </div>
-    <div class="grid50">
-        <button class="btn btn-info" (click)="onEdit()">Edit</button>
-        <button class="btn btn-danger" (click)="onDelete(grocery.id)">Delete</button>
+    <div *ngIf="!editMode" class="grid50">
+        <button class="btn btn-info" (click)="onEdit()"><h4>Edit</h4></button>
+        <button class="btn btn-danger" (click)="onDelete(grocery.id)"><h4>Delete</h4></button>
+    </div>
+    <div *ngIf="editMode" class="grid50">
+        <button class="btn btn-success" (click)="submitAll()"><h4>Update</h4></button>
+        <button class="btn btn-danger" (click)="onCancel()"><h4>Cancel</h4></button>
     </div>
 </div>
-<div *ngIf="editMode">
-    <app-edit [grocery]="grocery" (cancel)="onCancel()"></app-edit>
-</div>
+<br>

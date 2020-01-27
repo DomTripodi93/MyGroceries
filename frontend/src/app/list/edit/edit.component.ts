@@ -20,6 +20,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.grocServ.groceryUpdated.subscribe(()=>{
+      console.log("submitted")
       this.onSubmit();
     })
     this.initForm();
@@ -36,13 +37,16 @@ export class EditComponent implements OnInit {
   onSubmit(){
     if (this.grocery.item != this.editGroceryForm.value.item){
       this.changeGrocery();
+    } else if (this.grocery.department != this.editGroceryForm.value.department){
+      this.changeGrocery();
     } 
   }
 
   changeGrocery(){
-    this.grocServ.changeGrocery(this.editGroceryForm.value, this.grocery.id).subscribe();
-    this.grocServ.groceriesUpdated.next();
-    this.onCancel();
+    this.grocServ.changeGrocery(this.editGroceryForm.value, this.grocery.id).subscribe(()=>{
+      this.grocServ.groceriesUpdated.next();
+      this.onCancel();
+    });
   }
 
   submitAll(){

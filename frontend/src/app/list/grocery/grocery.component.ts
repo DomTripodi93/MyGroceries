@@ -25,6 +25,10 @@ export class GroceryComponent implements OnInit {
     this.editMode = false;
   }
 
+  submitAll(){
+    this.grocServ.groceryUpdated.next();
+  }
+
   onDelete(id){
     if (confirm("Are you sure you want to delete " + this.grocery.item + "?")){ 
       this.grocServ.deleteGrocery(id).subscribe(()=>{

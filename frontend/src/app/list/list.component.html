@@ -20,13 +20,18 @@
     <div *ngFor="let groc of groceries">
         <app-grocery [grocery]="groc"></app-grocery>
     </div>
-    <br><br>
-    <div class="grid255025">
-        <div></div>
-        <button class="btn btn-success" (click)="onEdit()">Add New Grocery</button>
-        <div></div>
-    </div>
+    <br>
     <div *ngIf="editMode">
         <app-add (cancel)="onCancel()"></app-add>
     </div>
+</div>
+<br><br>
+<div *ngIf="!editMode" class="grid255025">
+    <div></div>
+    <div>
+        <button class="btn btn-success" (click)="onEdit()">
+            <h4>Add New Grocery</h4>
+        </button>
+    </div>
+    <div></div>
 </div>

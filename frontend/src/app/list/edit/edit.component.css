@@ -1,0 +1,10 @@
+input{
+    height: 60px;
+    width: 80%;
+    margin: auto;
+    font-size: 130%;;
+}
+
+hidden{
+    visibility: hidden;
+}
